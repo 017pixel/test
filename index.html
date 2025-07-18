@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Interaktive Schaltfläche</title>
+    <link rel="stylesheet" href="src/styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@^1.10.0",
+          "marked": "https://esm.sh/marked@^13.0.2"
+        }
+      }
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div class="leaves-container">
+      <div>🍂</div>
+      <div>🍁</div>
+      <div>🍃</div>
+      <div>🍂</div>
+      <div>🍁</div>
+      <div>🍃</div>
+      <div>🍂</div>
+      <div>🍁</div>
+      <div>🍃</div>
+      <div>🍂</div>
+      <div>🍁</div>
+      <div>🍃</div>
+      <div>🍂</div>
+      <div>🍁</div>
+      <div>🍃</div>
+    </div>
+    <main>
+      <button id="interactive-button" aria-label="Einen interessanten Fakt anfordern">
+        <span class="button-text">Dein Fakt für heute</span>
+        <div class="spinner"></div>
+      </button>
+      <div id="result-container" aria-live="polite"></div>
+    </main>
+    <script type="module" src="src/main.ts"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
