@@ -33,10 +33,32 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      # ====================================================================
+      # HIER IST DER NEUE SCHRITT, DER DAS SECRET VERWENDET
+      # ====================================================================
+      - name: Build with secret
+        # Das Secret wird hier als Umgebungsvariable für diesen Schritt bereitgestellt
+        env:
+          # Der Name der Umgebungsvariable, die Ihr Build-Prozess erwartet
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }} 
+        run: |
+          # Beispiel 1: Führen Sie Ihren Build-Befehl aus.
+          # Ihr Build-Tool (z.B. Vite, Next.js, etc.) wird die Umgebungsvariable automatisch verwenden.
+          # npm install
+          # npm run build
+          
+          # Beispiel 2: Wenn Sie kein Build-Tool haben, können Sie das Secret in eine Datei schreiben.
+          # Dies erstellt eine .env Datei, die Ihr JavaScript-Code laden kann.
+          echo "VITE_API_KEY=${{ secrets.VITE_API_KEY }}" > .env
+          echo "Build-Schritt abgeschlossen."
+      # ====================================================================
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
+          # Wenn Sie einen Build-Schritt haben, ändern Sie den Pfad zu Ihrem Build-Ordner.
+          # z.B. path: './dist'
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
