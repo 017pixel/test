@@ -7,7 +7,7 @@ import { GoogleGenAI } from '@google/genai';
 import { API_KEY } from './config';
 
 // Initialize the GoogleGenAI client with the API key from the config file.
-const ai = new GoogleGenAI({ apiKey: APIKEY });
+const ai = new GoogleGenAI({ apiKey: VITE_API_KEY });
 const model = 'gemini-2.5-flash';
 const prompt =
   'Erzähle mir einen zufälligen, interessanten Fakt auf Deutsch. Nutze Markdown zur Formatierung.';
